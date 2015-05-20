@@ -26,7 +26,9 @@ $(document).on("click", ".delete", function() { //delete items
 });
 
 $(document).on("click", ".edit", function() {
-	$(this).parent().append();
+	var editedText = prompt("enter corrected list item");
+	$(this).parent().remove();
+	$("#todoList").append("<li><input type='checkbox' class='done' />" + editedText + " <button class='delete'>Delete</button> <button class='edit'>Edit</button></li>");
 });
 
 $(document).on("click", ".done", function() { //line through completed items
@@ -36,4 +38,3 @@ $(document).on("click", ".done", function() { //line through completed items
 		$(this).parent().css("textDecoration", "line-through");
 	}
 });
-
