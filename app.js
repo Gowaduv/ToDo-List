@@ -14,7 +14,7 @@ $("#add").on("click", function() {
 		event.preventDefault();
 		alert("Please add an item");
 	} else {
-		$("#todoList").append("<li><input type='checkbox' class='done' />" + text + " <button class='delete'>Delete</button> <button class='edit'>Edit</button></li>");
+		$("#todoList").append("<li><input type='checkbox' class='done' /><span class='todo-content'>" + text + " </span><button class='delete'>Delete</button> <button class='edit'>Edit</button></li>");
 		$("#new-text").val("");
 	}
 
@@ -27,8 +27,7 @@ $(document).on("click", ".delete", function() { //delete items
 
 $(document).on("click", ".edit", function() {
 	var editedText = prompt("enter corrected list item");
-	$(this).parent().remove();
-	$("#todoList").append("<li><input type='checkbox' class='done' />" + editedText + " <button class='delete'>Delete</button> <button class='edit'>Edit</button></li>");
+	$(this).parent().find(".todo-content").text(editedText);
 });
 
 $(document).on("click", ".done", function() { //line through completed items
